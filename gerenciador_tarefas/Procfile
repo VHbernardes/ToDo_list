@@ -1,1 +1,1 @@
-web: mvn spring-boot:run -f gerenciador_tarefas/pom.xml
+web: cd gerenciador_tarefas && mvn spring-boot:run

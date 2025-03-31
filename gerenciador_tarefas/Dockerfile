@@ -43,13 +43,13 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copiar o pom.xml e baixar dependências primeiro
-COPY gerenciador_tarefas/pom.xml .
+COPY pom.xml .
 
 # Baixar dependências do Maven
 RUN apt-get update && apt-get install -y maven && mvn dependency:go-offline
 
 # Copiar todo o código da aplicação
-COPY gerenciador_tarefas /app
+COPY . /app
 
 # Compilar e empacotar a aplicação (sem executar os testes)
 RUN mvn clean package -DskipTests
